@@ -35,7 +35,7 @@ export const divSpinner = document.getElementById("spinner");
  */
 const getSpinner = () => {
     let spinner = document.createElement('img');
-    spinner.setAttribute('src', '../media/kb.gif');
+    spinner.setAttribute('src', '../assets/keyboard.gif');
     spinner.setAttribute('alt', 'Spinner');
     divSpinner.appendChild( spinner);
 }
