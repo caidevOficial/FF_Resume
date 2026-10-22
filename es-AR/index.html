@@ -4,544 +4,673 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:site_name" content="CV Facu Falcone" />
-    <meta property="og:title" content="Curr&iacute;culum" />
-    <meta property="og:image" content="https://caidevoficial.github.io/Curriculum/pm/pageImgs/preview.png" />
-    <link rel="image_src" href="https://caidevoficial.github.io/Curriculum/preview.png" />
-    <link rel="icon" type="image/x-icon" href="../assets/icons/personal/icon_2022.ico" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.8.0/devicon.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/animation.css">
-    <script src="../js/mainScript.js" type="module" defer></script>
+    <!-- MANDATORY: Declare support for both light and dark themes & prevent FOUC -->
+    <meta name="color-scheme" content="light dark">
     <script>
-        function openURL(url, width, height) {
-            open(url, '', `top=100,left=100,width=${width},height=${height}`);
-        }
+        try {
+            document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+        } catch (e) {}
     </script>
-    <title>CV Facu Falcone</title>
+    <meta name="description" content="Facundo Falcone — Data Engineer & Python Developer especializado en Google Cloud Platform (GCP), BigQuery, Pipelines ETL/ELT, SQL, Terraform y CI/CD (Azure DevOps).">
+    <meta property="og:site_name" content="Facundo Falcone | Data Engineer & Python Developer">
+    <meta property="og:title" content="Facundo Falcone — Data Engineer & Python Developer">
+    <meta property="og:description" content="Casi 6 años en Accenture construyendo soluciones de datos escalables en GCP y BigQuery, y casi 6 años como Profesor de Python en la UTN.">
+    <meta property="og:image" content="https://caidevoficial.github.io/FF_Resume/assets/pm/pageImgs/preview.png">
+    <link rel="icon" type="image/x-icon" href="../assets/icons/personal/icon_2022.ico">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/mainScript.js" type="module" defer></script>
+    <title>Facundo Falcone | Data Engineer &amp; Python Developer (CV)</title>
 </head>
 
 <body>
-    <header>
-        <nav class="bounceInDown animated navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center ">
-            <!-- TOP RIGHT RIBBON: START COPYING HERE -->
-            <div class="github-fork-ribbon-wrapper right">
-                <div class="github-fork-ribbon">
-                    <a href="#" target="_blank">En Construcci&oacute;n</a>
-                </div>
-            </div>
-            <button class="navbar-toggler green-back" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon green-back"></span>
-            </button>
+    <!-- Top Scroll Progress Bar -->
+    <div class="scroll-progress-track" aria-hidden="true">
+        <div class="scroll-progress-bar" id="myBar"></div>
+    </div>
 
-            <div class="green-back collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav green-back">
-                    <a align="center" class="green nav-link active white-lt" href="https://github.com/caidevOficial/">Mi Github</a>
+    <!-- Sticky Glass Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#" class="brand-id">
+                <span>Facundo Falcone</span>
+                <span class="brand-badge">Data Engineer · Python</span>
+            </a>
+
+            <nav aria-label="Navegación Principal">
+                <ul class="nav-links">
+                    <li><a href="#about">Perfil</a></li>
+                    <li><a href="#stack">Stack Técnico</a></li>
+                    <li><a href="#experience">Experiencia</a></li>
+                    <li><a href="#education">Educación</a></li>
+                    <li><a href="#certifications">Certificaciones</a></li>
+                    <li><a href="#github">GitHub</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="lang-switch" role="group" aria-label="Selector de idioma">
+                    <a href="../en-US/index.html" class="lang-pill">
+                        <img src="../assets/icons/flags/united-states.svg" alt="" width="16" height="16">
+                        <span>EN</span>
+                    </a>
+                    <a href="../es-AR/index.html" class="lang-pill" aria-current="page">
+                        <img src="../assets/icons/flags/argentina.svg" alt="" width="16" height="16">
+                        <span>ES</span>
+                    </a>
                 </div>
-            </div>
-        </nav>
-        <div id="myBar"></div>
-        <div class="container">
-            <div class="language animated bounceInUp">
-                <a href="../es-AR/index.html"><img src="../assets/icons/flags/argentina.svg" alt="Español" width="30px" height="30px"></a>
-                <a href="../en-US/index.html"><img src="../assets/icons/flags/united-states.svg" alt="English" width="30px" height="30px"></a>
+
+                <button type="button" class="icon-btn" id="themeToggle" aria-label="Cambiar tema de color">
+                    <span class="theme-icon-sun" aria-hidden="true">☀️ Claro</span>
+                    <span class="theme-icon-moon" aria-hidden="true">🌙 Oscuro</span>
+                </button>
             </div>
         </div>
     </header>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 p-2" style="border-radius: 10px" id="credential">
-                <div class="photoSection animated bounceInUp">
-                    <section class="foto d-flex justify-content-center">
-                        <img src="../assets/pm/personal_image.png" height="200" alt="me" id="myPhoto" class="shadow">
-                    </section>
-                    <hr>
+    <!-- Main 2-Column Layout -->
+    <div class="page-shell">
+        <!-- Left Sticky Sidebar -->
+        <aside class="profile-sidebar" aria-label="Resumen de Perfil y Contacto">
+            <div class="surface-card profile-header">
+                <div class="avatar-ring">
+                    <img src="../assets/pm/personal_image.png" width="128" height="128" fetchpriority="high" alt="Foto de Facundo Falcone" class="profile-avatar">
                 </div>
-                <div class="leftSide animated bounceInRight ">
-                    <section class="about-me">
-                        <div class="light-blue">
-                            <h3><img src="../assets/icons/personal/Personal_information.svg" alt="" width="30px"> Informaci&oacute;n Personal <br></h3>
-                        </div>
-                        <ul>
-                            <li>
-                                <h6 class="m-1 green">Amilcar Facundo Falcone</h6>
-                            </li>
-                            <li><img src="../assets/icons/personal/loc.png" alt="Address" width="15px"> Berazategui, Buenos Aires.<br></li>
-                            <li><img src="../assets/icons/personal/mail.png" alt="eMail" width="15px">a.facundo.falcone@gmail.com<br></li>
-                            <li><img src="../assets/icons/personal/calendar2.svg" alt="birthdate" width="15px"> 25-02-1990 <br></li>
-                            <li><img src="../assets/icons/personal/tool.png" alt="Github" width="15px"><a class="green" href="https://github.com/caidevOficial"> Mi Github</a> <br></li>
-                            <li>
-                                <a href="https://www.linkedin.com/in/facundo-falcone/"><img src="../assets/icons/personal/linkedin.png" alt="Linkedin" width="75px"></a>
-                            </li>
-                        </ul>
-                        <!-- <img src="assets/icons/personal/phone.png" alt="Phone" width="15px"><br> -->
-                    </section>
-                    <hr>
 
-                    <section class="natural-languajes">
-                        <div class="light-blue">
-                            <h3><img src="../assets/icons/personal/Languages.svg" alt="" width="20px"> Idiomas <br></h3>
-                        </div>
-                        <ul>
-                            <li>Español - Nativo.</li>
-                            <li>Ingl&eacute;s - Avanzado - C1.</li>
-                        </ul>
-                    </section>
-                    <hr>
+                <div class="status-pill">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span>Abierto a propuestas 100% Remotas</span>
+                </div>
 
-                    <section class="skills">
-                        <div class="light-blue">
-                            <h3><img src="../assets/icons/personal/skills.svg" alt="Skills" width="20px"> Skills <br></h3>
-                        </div>
-                        <article>
-                            <p align="left">
-                                <a href="https://www.python.org" target="_blank"> <img src="../assets/icons/python/python-original.svg" alt="python" width="40" height="40" /> </a>
-                                <a href="https://pandas.pydata.org/" target="_blank"> <img src="https://github.com/devicons/devicon/blob/master/icons/pandas/pandas-original-wordmark.svg?raw=true" alt="Pandas" width="40" height="40" /> </a>
-                                <a href="https://numpy.org/" target="_blank"> <img src="../assets/icons/numpy/numpy_logo.svg" alt="NumPy" width="40" height="40" /> </a>
-                                <a href="https://matplotlib.org/" target="_blank"> <img src="https://matplotlib.org/_static/logo_dark.svg?raw=true" alt="Matplotlib" width="100" height="40" /> </a>
-                                <a href="https://www.pygame.org/news" target="_blank"> <img src="https://www.pygame.org/images/logo_lofi.png?raw=true" alt="Pygame" width="100" height="40" /> </a>
-                                <a href="https://www.djangoproject.com/" target="_blank"> <img src="../assets/icons/django/django-original.svg" alt="django" width="40" height="40" /> </a>
-                                <a href="https://www.java.com" target="_blank"> <img src="https://github.com/caidevOficial/Logos/blob/master/Lenguajes/java.png?raw=true" alt="java" width="40" height="40" /> </a>
-                                <a href="https://www.w3schools.com/cs/" target="_blank"> <img src="../assets/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40" /></a>
-                                <a href="https://www.cprogramming.com/" target="_blank"> <img src="../assets/icons/c/c-original.svg" alt="c" width="40" height="40" /> </a>
-                                <a href="https://tomcat.apache.org/" target="_blank"> <img src="../assets/icons/tomcat/tomcat-original.svg" alt="Tomcat" width="40" height="40" /> </a>
-                                <a href="https://www.arduino.cc/" target="_blank"> <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="arduino" width="40" height="40" /> </a>
-                            </p>
-                        </article>
-                        <article>
-                            <p align="left">
-                                <a href="https://cloud.google.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg?raw=true" alt="GCP" width="40" height="40" /> </a>
-                                <a href="https://cloud.google.com/bigquery" target="_blank"> <img src="https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-icon.svg" alt="BigQuery" width="40" height="40" /> </a>
-                                <a href="https://azure.microsoft.com/en-in/" target="_blank"> <img src="https://camo.githubusercontent.com/6df31a460cb0c38f960e92812c8b6f8bce4c7f13170fb4782f0b31ab8e792ac2/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6d6963726f736f66745f617a7572652f6d6963726f736f66745f617a7572652d69636f6e2e737667" alt="Azure" width="40" height="40" /> </a>
-                                <a href="https://www.sqlite.org/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40" /> </a>
-                                <a href="https://mariadb.org/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/mariadb/mariadb-icon.svg" alt="mariadb" width="40" height="40" /> </a>
-                                <a href="https://www.mysql.com/" target="_blank"> <img src="../assets/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40" /> </a>
-                                <a href="https://www.microsoft.com/es-es/sql-server/sql-server-downloads/" target="_blank"> <img src="../assets/icons/mssql/microsoft-sql-server.svg" alt="mssql" width="40" height="40" /> </a>
-                                <a href="https://www.apachefriends.org/es/index.html/" target="_blank"> <img src="https://github.com/devicons/devicon/raw/master/icons/php/php-original.svg?raw=true" alt="php" width="40" height="40" /> </a>
-                                <a href="https://apache.org/" target="_blank"> <img src="../assets/icons/apache/apache-original.svg" alt="Apache" width="40" height="40" /> </a>
-                                <a href="https://www.postman.com/" target="_blank"> <img src="../assets/icons/postman/getpostman-icon.svg" alt="Postman" width="40" height="40" /> </a>
-                                <a href="https://insomnia.rest/download" target="_blank"> <img src="https://insomnia.rest/images/insomnia-logo.svg?raw=true" alt="Insomnia" width="100" height="40" /> </a>
-                            </p>
-                        </article>
-                        <article>
-                            <p align="left">
-                                <a href="https://getbootstrap.com" target="_blank"> <img width="40" heigth="40" src="../assets/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="Bootstrap"></i>
-                                </a>
-                                <a href="https://www.w3schools.com/css/" target="_blank"> <img src="../assets/icons/css3/css3-original.svg" alt="css3" width="40" height="40" /></a>
-                                <a href="https://www.w3.org/html/" target="_blank"> <img src="../assets/icons/html5/html5-original.svg" alt="html5" width="40" height="40" /> </a>
-                                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg?raw=true" alt="javascript" width="35" height="39" /> </a>
-                            </p>
-                        </article>
-                        <article>
-                            <p align="left">
-                                <a href="https://www.eclipse.org/" target="_blank"> <img src="https://github.com/caidevOficial/Logos/blob/master/Lenguajes/logo-eclipse.png?raw=true" alt="Eclipse" width="40" height="40" /> </a>
-                                <a href="https://netbeans.apache.org/download/" target="_blank"> <img src="https://netbeans.apache.org/images/apache-netbeans.svg" alt="Netbeans" width="40" height="40" /> </a>
-                                <a href="https://code.visualstudio.com/" target="_blank"> <img src="https://github.com/caidevOficial/Logos/blob/master/Lenguajes/visual-studio-code.svg?raw=true" alt="visualStudio" width="40" height="40" /> </a>
-                                <a href="https://visualstudio.microsoft.com/es/vs/community/" target="_blank"> <img src="https://github.com/devicons/devicon/blob/master/icons/visualstudio/visualstudio-plain.svg?raw=true" alt="visualStudio" width="40" height="40" /> </a>
-                                <a href="https://www.jetbrains.com/es-es/pycharm/" target="_blank"> <img src="../assets/icons/pycharm/pycharm-original.svg" alt="PyCharm" width="40" height="40" /> </a>
-                                <a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40" /> </a>
-                                <a href="https://github.com/CaidevOficial" target="_blank"> <img src="https://github.com/devicons/devicon/blob/master/icons/github/github-original-wordmark.svg?raw=true" alt="git" width="40" height="40" /> </a>
-                                <a href="https://slack.com/intl/es-la/" target="_blank"> <img src="../assets/icons/slack/slack-original.svg" alt="Slack" width="40" height="40" /> </a>
-                                <a href="https://trello.com/" target="_blank"> <img src="../assets/icons/trello/trello-plain.svg" alt="Trello" width="40" height="40" /> </a>
-                            </p>
-                        </article>
-                        <article>
-                            <p align="left">
-                                <a href="https://www.linux.org/" target="_blank"> <img src="../assets/icons/linux/linux-original.svg" alt="linux" width="40" height="40" /> </a>
-                                <a href="https://www.debian.org/" target="_blank"> <img src="https://www.debian.org/Pics/openlogo-50.png" alt="Debian" width="40" height="40" /> </a>
-                                <a href="https://www.deepin.org/" target="_blank"> <img src="../assets/pm/deepin-logo.svg" alt="Deepin" width="40" height="40" /> </a>
-                                <a href="https://ubuntu.com/" target="_blank"> <img src="../assets/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu" width="40" height="40" /> </a>
-                                <a href="https://www.microsoft.com/es-ar/windows/" target="_blank"> <img src="https://github.com/caidevOficial/Logos/blob/master/Lenguajes/windows.svg?raw=true" alt="Windows" width="40" height="40" /> </a>
-                            </p>
-                        </article>
-                    </section>
-                    <hr>
-                    <section class="git-content">
-                        <div class="light-blue">
-                            <h3><img src="../assets/icons/personal/github.svg" alt="" width="20px"> My Github's Stats <br></h3>
-                        </div>
-                        <a href="https://github.com/caidevOficial/caidevOficial"> 
-                            <img width="280em" align="left" src="https://github-readme-stats-caidevposeidon.vercel.app/api/top-langs/?username=caidevOficial&layout=compact&theme=chartreuse-dark&langs_count=10&exclude_repo=Logos,Java_Lineage2_aCis_From_345&hide=html,css,tsql" alt="caidevoficial"/>
-                        </a>
-                            <img width="280em" align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=caidevoficial&theme=chartreuse-dark" alt="caidevoficial" />
-                        <a href="https://github.com/caidevOficial/caidevOficial"> 
-                            <img width="280em" src="https://github-readme-stats-caidevposeidon.vercel.app/api?username=caidevOficial&show_icons=true&theme=chartreuse-dark&count_private=true&show_owner=true&include_all_commits=true" />
-                        </a>
-                    </section>
-                    <hr>
-                    <section class="Jobs">
-                        <div class="light-blue">
-                            <h3><img src="../assets/icons/personal/job-interview.svg" alt="" width="30px"> Experiencia Laboral</h3>
-                        </div>
-                        <article id="Accenture">
-                            <p>
-                                <div class="green">
-                                    <h5>Data Engineer Analyst</h5>
-                                </div>
-                                <div class="coral">
-                                    Accenture | Septiembre 2023 - Presente
-                                </div>
-                                <ul>
-                                    <li>An&aacute;lisis de datos y tablas.</li>
-                                    <li>Manejo de ambiente en GCP.</li>
-                                    <li>Creaci&oacute;n y mantenimiento de DDL y DML para Bigquery.</li>
-                                    <li>Implementaci&oacute;n de nuevas funcionalidades.</li>
-                                    <li>Automtizaciones con Python.</li>
-                                    <li>Azure DevOps.</li>
-                                    <li>Pipelines CI/CD con Azure DevOps.</li>
-                                    <li>Orquestaci&oacute;n de tareas con YAML.</li>
-                                </ul>
-                                <p>
-                                    Realizar actividades de ingenier&iacute;a de datos para activos dentro del programa SEA. Tener experiencia con conceptos y tecnolog&iacute;as de integraci&oacute;n, ETL, modelado de datos y big data. Ser capaz de comprender los requisitos de datos para ingerir y seleccionar datos para su presentaci&oacute;n en las herramientas de visualizaci&oacute;n de informes. Activos que se desarrollarán en AIA Data Lake (Google Cloud Platform) de CIO. Ser capaz de entregar de una manera rápida y ágil.
-                                </p>
-                            </p>
-                        </article>
-                        
-                        <article id="UTN">
-                            <p>
-                                <div class="green">
-                                    <h5>Ayudante de C&aacute;tedra | Python</h5>
-                                </div>
-                                <div class="coral">
-                                    UTN | Agosto 2022 - Presente
-                                </div>
-                                <ul>
-                                    <li>Desarrollo de material y ejercicios para estudiantes.</li>
-                                    <li>Preparacion y correcci&oacute;n de ex&acute;menes.</li>
-                                    <li>Investigaci&oacute;n e innovaci&oacute;n para la cursada.</li>
-                                    <li>Asistencia al profesor a cargo de la c&aacute;tedra con temas necesarios para que los estudiantes se preparen como futuros desarrolladores Python.</li>
-                                </ul>
-                            </p>
-                        </article>
-                        
-                        <article id="Accenture">
-                            <p>
-                                <div class="green">
-                                    <h5>Data Engineer</h5>
-                                </div>
-                                <div class="coral">
-                                    Accenture | Abril 2022 - Septiembre 2023
-                                </div>
-                                <ul>
-                                    <li>An&aacute;lisis de datos y tablas.</li>
-                                    <li>Manejo de ambiente en GCP.</li>
-                                    <li>Creaci&oacute;n y mantenimiento de DDL y DML para Bigquery.</li>
-                                    <li>Implementaci&oacute;n de nuevas funcionalidades.</li>
-                                    <li>Automtizaciones con Python.</li>
-                                    <li>Azure DevOps.</li>
-                                    <li>Pipelines CI/CD con Azure DevOps.</li>
-                                    <li>Orquestaci&oacute;n de tareas con YAML.</li>
-                                </ul>
-                                <p>
-                                    Realizar actividades de ingenier&iacute;a de datos para activos dentro del programa SEA. Tener experiencia con conceptos y tecnolog&iacute;as de integraci&oacute;n, ETL, modelado de datos y big data. Ser capaz de comprender los requisitos de datos para ingerir y seleccionar datos para su presentaci&oacute;n en las herramientas de visualizaci&oacute;n de informes. Activos que se desarrollarán en AIA Data Lake (Google Cloud Platform) de CIO. Ser capaz de entregar de una manera rápida y ágil.
-                                </p>
-                            </p>
-                        </article>
-                        
-                        <article id="Accenture">
-                            <p>
-                                <div class="green">
-                                    <h5>Analytics Associate</h5>
-                                </div>
-                                <div class="coral">
-                                    Accenture | Enero 2021 - Abril 2022
-                                </div>
-                                <ul>
-                                    <li>Python Dev.</li>
-                                    <li>Implementaci&oacute;n de Backend con GCP.</li>
-                                    <li>Migraci&oacute;n de queries a bigquery.</li>
-                                    <li>Creacion de pipelines.</li>
-                                </ul>
-                            </p>
-                        </article>
+                <h1 class="profile-name">Facundo Falcone</h1>
+                <p class="profile-headline">Data Engineer 🗃️ | Python Developer 🐍</p>
+                <p class="profile-subheadline">GCP &amp; BigQuery · SQL &amp; Terraform · CI/CD (Azure DevOps) · Ex Profesor de Python @ UTN</p>
 
-                        <article id="UTN">
-                            <p>
-                                <div class="green">
-                                    <h5>Ayudante de C&aacute;tedra | SPD</h5>
-                                </div>
-                                <div class="coral">
-                                    UTN | Enero 2021 - Julio 2022
-                                </div>
-                                <ul>
-                                    <li>Asistencia al profesor a cargo de la clase con contenido y correcciones.</li>
-                                    <li>Preparacion de temas para cada clase.</li>
-                                </ul>
-                            </p>
-                        </article>
+                <div class="kpi-grid" role="list" aria-label="Indicadores de carrera">
+                    <div class="kpi-box" role="listitem">
+                        <span class="kpi-value">~6 años</span>
+                        <span class="kpi-label">Accenture</span>
+                    </div>
+                    <div class="kpi-box" role="listitem">
+                        <span class="kpi-value">~6 años</span>
+                        <span class="kpi-label">Prof. UTN</span>
+                    </div>
+                    <div class="kpi-box" role="listitem">
+                        <span class="kpi-value">85+</span>
+                        <span class="kpi-label">Certif.</span>
+                    </div>
+                </div>
 
-                        <article id="Autonomous">
-                            <p>
-                                <div class="green">
-                                    <h5>Mantenimiento y reparaci&oacute;n de pc - Soporte t&eacute;cnico</h5>
-                                </div>
-                                <div class="coral">
-                                    Aut&oacute;nomo | Noviembre 2014 - Presente
-                                </div>
-                                <ul>
-                                    <li>Tareas de backup, formateo y particionado de discos, instalaci&oacute;n de S.O. y softwares diversos.</li>
-                                    <li>Armado de pc a medida.</li>
-                                    <li>Atenci&oacute;n al cliente via online o presencial.</li>
-                                </ul>
-                            </p>
-                        </article>
+                <ul class="meta-list">
+                    <li>
+                        <span class="meta-icon" aria-hidden="true">📍</span>
+                        <span>Buenos Aires, Argentina (100% Remoto)</span>
+                    </li>
+                    <li>
+                        <span class="meta-icon" aria-hidden="true">✉️</span>
+                        <a href="mailto:a.facundo.falcone@gmail.com">a.facundo.falcone@gmail.com</a>
+                    </li>
+                    <li>
+                        <span class="meta-icon" aria-hidden="true">💼</span>
+                        <a href="https://www.linkedin.com/in/facundo-falcone/" target="_blank" rel="noopener noreferrer">linkedin.com/in/facundo-falcone</a>
+                    </li>
+                    <li>
+                        <span class="meta-icon" aria-hidden="true">🐙</span>
+                        <a href="https://github.com/caidevOficial" target="_blank" rel="noopener noreferrer">github.com/caidevOficial</a>
+                    </li>
+                </ul>
 
-                        <article id="HP">
-                            <p>
-                                <div class="green">
-                                    <h5>Merchant para Hewlett-Packard</h5>
-
-                                </div>
-                                <div class="coral">
-                                    Integra-GO | Febrero 2018 - Abril 2019
-                                </div>
-                                <ul>
-                                    <li>Fu&iacute; el nexo entre el cliente y la marca brindando soporte con capacitaciones a vendedores y material promocional.</li>
-                                    <li>Colocaci&oacute;n de material PoP respetando lineamientos y negociaci&oacute;n de nuevos espacios para la marca.</li>
-                                </ul>
-                                <div class="coral">
-                                    Premio recibido
-                                </div>
-                                <ul>
-                                    <li>Premio a la mejor exhibici&oacute;n en el can&aacute;l hipermercados.</li>
-                                </ul>
-                                <img align="center" src="../assets/pm/hypermarket_exhibition.jpg" alt="Coto" width="300px">
-                            </p>
-                        </article>
-                    </section>
-                    <hr>
+                <div class="cta-stack">
+                    <a href="https://www.linkedin.com/in/facundo-falcone/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                        <span>LinkedIn</span>
+                    </a>
+                    <button type="button" id="printResumeBtn" class="btn-secondary">
+                        <span>🖨️ Guardar PDF</span>
+                    </button>
                 </div>
             </div>
 
-            <div class="col-md-8 p-3" style="border-radius: 10px">
-                <section class="gif">
-                    <div class="light-blue">
-                        <p align="center">
-                            <a href="https://github.com/CaidevOficial">
-                                <img height="100px" src="https://github-profile-trophy.vercel.app/?username=caidevoficial&theme=nord&column=7" alt="caidevoficial" />
-                            </a>
-                        </p>
-                    </div>
-                </section>
-                <hr>
-
-                <div align='center' id="spinner"></div>
-                <div id="right">
-                    <section class="info">
-                        <div class="light-blue">
-                            <h3><img src="../assets/icons/personal/identity-card.svg" alt="" width="30px"> Sobre m&iacute; </h3>
+            <!-- Languages Card -->
+            <div class="surface-card">
+                <h2 class="sidebar-title">🌐 Idiomas</h2>
+                <ul class="lang-list">
+                    <li>
+                        <div class="lang-item-top">
+                            <span class="lang-name">Español</span>
+                            <span class="lang-level">Nativo</span>
                         </div>
-                        <p>
-                            Tengo facilidad para aprender nuevas habilidades, tecnolog&iacute;as y por eso me capacito constantemente en plataformas de e-learning. 
-                            Actualmente curso el ultimo semestre de la Tecnicatura universitaria en programaci&oacute;n en la UTN.
-                            Soy ayudante de c&aacute;tedra enseñando Python en dos materias del primer semestre de la carrera.
-                            Tambi&eacute;n soy Data Engineer con 2 años de experiencia en el rubro.
-                        </p>
-                    </section>
-                    <hr>
-
-                    <section class="Study">
-                        <div class="light-blue">
-                            <h3><img src="../assets/icons/personal/formation.svg" alt="" width="27px"> Formaci&oacute;n Acad&eacute;mica </h3>
+                        <div class="lang-bar" aria-hidden="true">
+                            <div class="lang-bar-fill" style="width: 100%;"></div>
                         </div>
-                        <img src="https://raw.githubusercontent.com/caidevOficial/Logos/master/Instituciones/logo-utn_blanco.png" alt="" width="100px"> <br> Universidad Tecnol&oacute;gica Nacional (2020-2023)<br> Tecnicatura universitaria en programaci&oacute;n. <br><br>
-                        <img src="https://github.com/caidevOficial/Logos/blob/master/Instituciones/logo_unqui.png?raw=true" alt="" width="100px"> <br> Universidad Nacional de Quilmes (2014)<br> Tecnicatura en armado y reparaci&oacute;n de pc. <br>
-                    </section>
-                    <hr>
-
-                    <section class="Courses">
-                        <div class="light-blue">
-                            <h3><img src="../assets/icons/personal/ribbon.svg" alt="" width="30px"> Cursos y Seminarios</h3>
+                    </li>
+                    <li>
+                        <div class="lang-item-top">
+                            <span class="lang-name">Inglés</span>
+                            <span class="lang-level">Avanzado · C1</span>
                         </div>
-
-                        <article class="ITBA">
-                            <img src="https://github.com/caidevOficial/Logos/raw/master/Instituciones/logo_oficial_itba_ieee.png?raw=true" alt="ITBA Student Branch Logo" height="30"><br>
-                            <ul>
-                                <li>An&aacute;lisis de Datos con Python - Octubre 2021 - <a href="javascript:openURL('../assets/pm/certif/ITBA_Certif.png','500','500')" class="green">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="Platzi">
-                            <img src="https://raw.githubusercontent.com/caidevOficial/Logos/master/Instituciones/Platzi.png" alt="Platzy Logo" height="30"><br>
-                            <ul>
-                                <li>Curso Fundamentos de Python [17 hs] - Noviembre 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/4227-python/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Curso de Python: <strong>Comprehensions, Funciones y Manejo de Errores</strong> [21 hs] - Noviembre 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/4260-python-funciones/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Funciones matem&aacute;ticas para <strong>Data Science</strong> e <strong>Inteligencia Artificial</strong> [12 hs] - Octubre 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/curso/2701-course/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Curso de Entorno de Trabajo para Ciencia de Datos con <strong>Jupyter Notebooks y Anaconda</strong> [10 hs] - Octubre 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/2434-jupyter-notebook/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Manipulaci&oacute;n y Transformación de Datos con Python [22 hs] - Octubre 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/4095-road-to-data-diploma/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Manipulaci&oacute;n y Transformación de Datos con Pandas y NumPy [11 hs] - Septiembre 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/2912-pandas-numpy/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Visualizaci&oacute;n de Datos con Matplotlib y Seaborn [10 hs] - Septiembre 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/2913-matplotlib-seaborn/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Curso Profesional Python [15 hs] - Marzo 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/2397-python-profesional/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Estructura de datos lineales con Python [15 hs] - Enero 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/2299-estructuras-datos-python/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Entrenamiento en Google Cloud Platform [20 hs] - Enero 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1911-course/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Introducci&oacute;n a Google Cloud Platform [8 hs] - Enero 2022 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/2469-fundamentos-google/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Curso Python Intermedio [17 hs] - Abril 2021 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/2255-course/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Curso de SQL & MySQL [18 hs] - Marzo 2021 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1272-course/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Fundamentos de bases de datos [26 hs] - Marzo 2021 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1566-bd/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Curso de Pensamiento Computacional con Python [18 hs] - Marzo 2021 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1764-course/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Curso de POO y Algoritmos con Python [16 hs] - Marzo 2021 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1775-poo-python/diploma/detalle/','500','500')">Enlace a Certificado </a></li>
-                                <li>Curso de persistencia de d&aacute;tos Java SE [11 hs] - Enero 2021 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1760-java-persistencia/diploma/detalle/','500','500')">Enlace a Certificado</a></li>
-                                <li>Java SE [PPP] - Diciembre 2020 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1629-course/diploma/detalle/','500','500')">Enlace a Certificado</a></li>
-                                <li>Curso de OOP - Diciembre 2020 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1474-oop/diploma/detalle/','500','500')">Enlace a Certificado</a></li>
-                                <li>Introducci&oacute;n a la terminal y l&iacute;nea de comandos - Diciembre 2020 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1748-terminal/diploma/detalle/','500','500')">Enlace a Certificado</a></li>
-                                <li>Introducci&oacute;n a Java SE - Diciembre 2020. - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1631-java-basico/diploma/detalle/','500','500')">Enlace a Certificado</a></li>
-                                <li>Python b&aacute;sico - Diciembre 2020 - <a class="green" href="javascript:openURL('https://platzi.com/p/facufalcone/curso/1937-course/diploma/detalle/','500','500')">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="Udemy">
-                            <img src="../assets/logos/Logo_Udemy.svg" alt="Udemy Logo" height="30"><br>
-                            <ul>
-                                <li>Patrones de diseño de programación orientada a objetos en <strong>Python</strong> - Agosto 2023 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-8659df6a-0562-47d0-a5f1-36336e8206fe/','500','500')">Enlace a Certificado</a><img src="../assets/icons/new-gif-image.gif"alt="New" height="20"></li>
-                                <li>Acelerador de Python: <strong>Dominar Python con Google Bard AI</strong> - Agosto 2023 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-fb62ae80-f068-46f4-aa7e-6551b333cfca/','500','500')">Enlace a Certificado</a><img src="../assets/icons/new-gif-image.gif"alt="New" height="20"></li>
-                                <li>Manipulation de Datos en Python: <strong>Master Python, Numpy & Pandas</strong> - Marzo 2022 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-1803d07b-ce0d-4f69-a77a-89a0150f6ff4/','500','500')">Enlace a Certificado</a></li>
-                                <li>Php Basico - Septiembre 2021 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-89d86480-3cfb-4097-aae8-8cd6f113522a/','500','500')">Enlace a Certificado</a></li>
-                                <li>C# en Profundidad [8.5 hs] - Junio 2021 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-3a7a65ce-1eb6-4560-af95-2cde172ee073/','500','500')">Enlace a Certificado</a></li>
-                                <li>Certificaci&oacute;n C# y Python [7 hs] - Junio 2021 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-3f481854-e619-4aaf-b282-f4bcc7773dd1/','500','500')">Enlace a Certificado</a></li>
-                                <li>Programaci&oacute;n B&aacute;sica C# .NET - Mayo 2021 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-d9731ef8-ea09-4f63-b5e5-c1cdde9e356c/','500','500')">Enlace a Certificado</a></li>
-                                <li>Programaci&oacute;n Java Avanzado - Octubre 2020 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-55be9a8e-deef-4255-971b-a4411254c7ef/','500','500')">Enlace a Certificado</a></li>
-                                <li>Java Avanzado - Octubre 2020 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-73f68372-b7a9-4873-86f0-86b27b48e645/','500','500')">Enlace a Certificado</a></li>
-                                <li>Certificaci&oacute;n Java - Octubre 2020 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-2cf776e7-8435-44e9-900a-dcfa15a19a0a/','500','500')">Enlace a Certificado</a></li>
-                                <li>Programaci&oacute;n Completa con C [22 hs] - Agosto 2020 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-7cb7da20-eb81-4d5c-9412-11b1f6778bdf/','500','500')">Enlace a Certificado</a></li>
-                                <li>Estructura de d&aacute;tos con C - Agosto 2020 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-0133f4cb-2946-456d-aec5-9519c8a26d73/','500','500')">Enlace a Certificado</a></li>
-                                <li>Programaci&oacute;n en C principiante [33.5 hs] - Agosto 2020 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-59002d8e-ddd1-4ade-8c35-69a890f853e1/','500','500')">Enlace a Certificado</a></li>
-                                <li>Python - Marzo 2020 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-acc8dc70-8549-4023-891a-c7c7a8cdde82/','500','500')">Enlace a Certificado</a></li>
-                                <li>Introducci&oacute;n al Backend con Php - Marzo 2020 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-c65cb843-334d-4ab1-a646-190d590aef2d/','500','500')">Enlace a Certificado</a></li>
-                                <li>Introducci&oacute;n a Git y Github - Febrero 2020 - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-d4ad791e-4cfd-4bfe-80e3-abc819d68cfa/','500','500')">Enlace a Certificado</a></li>
-                                <li>Python 3 [9 hs] - Febrero 2020. - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-fd14afac-cc3e-4490-a353-6cb094a531dc/','500','500')">Enlace a Certificado</a></li>
-                                <li>Power BI, M&aacute;xima Orientaci&oacute;n - Febrero 2020. - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-e9ec71fd-d634-4dcb-b2c7-ba650a33f90a/','500','500')">Enlace a Certificado</a></li>
-                                <li>Introducci&oacute;n a la programaci&oacute;n con Javascript - Febrero 2020. - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-9cfbfaa5-56f7-4651-8db1-2d393dc64d06/','500','500')">Enlace a Certificado</a></li>
-                                <li>Redes CCDA - Noviembre 2019. - <a class="green" href="javascript:openURL('https://www.udemy.com/certificate/UC-C8LUJV60/','500','500')">Enlace a Certificado</a></li>
-
-                            </ul>
-                        </article>
-
-                        <article class="SoloLearn">
-                            <img src="../assets/logos/Logo_SoloLearn.svg" alt="SoloLearn Logo" height="30"><br>
-                            <ul>
-                                <li>Javascript Course - Octubre 2021 - <a class="green" href="javascript:openURL('https://www.sololearn.com/certificates/course/en/7481559/1024/landscape/png','500','500')">Enlace a Certificado </a></li>
-                                <li>PHP Course - Septiembre 2021 - <a class="green" href="javascript:openURL('https://www.sololearn.com/Certificate/1059-7481559/jpg','500','500')">Enlace a Certificado</a></li>
-                                <li>C# - Septiembre 2021 - <a class="green" href="javascript:openURL('https://www.sololearn.com/certificates/course/en/7481559/1080/landscape/png','500','500')">Enlace a Certificado</a></li>
-                                <li>Python Intermedio - Septiembre 2021 - <a class="green" href="javascript:openURL('https://www.sololearn.com/certificates/course/en/7481559/1158/landscape/png','500','500')">Enlace a Certificado</a></li>
-                                <li>Python Core - Septiembre 2021 - <a class="green" href="javascript:openURL('https://www.sololearn.com/certificates/course/en/7481559/1073/landscape/png','500','500')">Enlace a Certificado</a></li>
-                                <li>SQL - Septiembre 2021 - <a class="green" href="javascript:openURL('https://www.sololearn.com/certificates/course/en/7481559/1060/landscape/png','500','500')">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-                        
-                        <article class="LinkedIn">
-                            <img src="../assets/icons/linkedin/linkedin.svg" alt="LinkedIn Logo" height="30"><br>
-                            <ul>
-                                <li>Curso de Python - Febrero 2022 - <a class="green" href="javascript:openURL('https://www.linkedin.com/learning/certificates/b15339801195ec5f21a7a7e32bf21526309e36d2f05d1694c9353d20a7ec0acc','500','500')">Enlace a Certificado</a></li>
-                                <li>SCRUM - Agosto 2020 - <a class="green" href="javascript:openURL('../assets/pm/certif/SCRUM_Certif_Linked.png','500','500')">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-                        
-                        <article class="Codigo_Facilito">
-                            <img src="https://codigofacilito.com/assets/logo-cbf2a784ebee5d642aa7b8182df3e388d4feba0a23577eed1d2747fa05861f73.png" alt="Codigo_Facilito Logo" height="30"><br>
-                            <ul>
-                                <li>Curso Profesional de Base de Datos - Junio 2022 - <a class="green" href="javascript:openURL('https://codigofacilito.com/certificates/41887.pdf','500','500')">Enlace a Certificado</a></li>
-                                <li>Creaci&oacute;n de Paquetes con Python - Junio 2022 - <a class="green" href="javascript:openURL('https://codigofacilito.com/certificates/41207.pdf','500','500')">Enlace a Certificado</a></li>
-                                <li>Curso Profesional JavaScript - Junio 2022 - <a class="green" href="javascript:openURL('https://codigofacilito.com/certificates/40883.pdf','500','500')">Enlace a Certificado</a></li>
-                                <li>Curso Profesional GIT - Junio 2020 - <a class="green" href="javascript:openURL('./assets/pm/certif/Git_Certif_CF.png','500','500')">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="PoloTic">
-                            <img src="https://github.com/caidevOficial/Logos/raw/master/Instituciones/polo_logo_2020.png" alt="PoloTic Logo" height="30"><br>
-                            <ul>
-                                <li>Desarrollador web Fullstack Junior Java - Diciembre 2020 - <a href="javascript:openURL('../assets/pm/certif/Java_FT_Certif.png','500','500')" class="green">Enlace a Certificado</a></li>
-                                <li>Desarrollador web Fullstack Junior Python & Javascript - Noviembre 2020 - <a href="javascript:openURL('../assets/pm/certif/Python_FT_Certif.png','500','500')" class="green">Enlace a Certificado</a></li>
-                                <li>Metodolog&iacute;as &Aacute;giles y SCRUM - Septiembre 2020 - <a href="javascript:openURL('../assets/pm/certif/SCRUM_Certif.png','500','500')" class="green">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="Eduonix">
-                            <img src="../assets/logos/Logo_Eduonix.png" alt="Eduonix Logo" height="45"><br>
-                            <ul>
-                                <li>Git B&aacute;sico - Agosto 2020 - <a class="green" href="javascript:openURL('https://www.eduonix.com/certificate/9993d6ee1c','500','500')">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="Skillsoft_Percipio">
-                            <img src="../assets/logos/Logo_Skillsoft_Percipio.svg" alt="Skillsoft Logo" height="30"><br>
-                            <ul>
-                                <li>Java SE 11: <strong>Objectos & Clases</strong> - Octubre 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/b9b9d65e-3474-4c55-b0f7-88b5d627412b','500','500')">Enlace a Certificado</a></li>                  
-                                <li>Tipos de datos complejos en Python: <strong>Shallow & Deep Copies en Python</strong> - Octubre 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/2c135447-0854-45b0-a91e-5e2a499ef0e7','500','500')">Enlace a Certificado</a></li>
-                                <li>Funciones en Python: <strong>Comprensi&oacute;n profunda de las funciones de Python</strong> - Octubre 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/dbf36d7e-f4fc-4500-adff-896c850fe283','500','500')">Enlace a Certificado</a></li>
-                                <li>Funciones en Python: <strong>Caracter&iacute;sticas avanzadas de funciones de Python</strong> - Octubre 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/9933e085-e950-43a5-b734-2cb4d4cc338b','500','500')">Enlace a Certificado</a></li>
-                                <li>Funciones en Python: <strong>Introducci&oacute;n</strong> - Octubre 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/d7b13f38-1de7-479c-990d-b4272641b0df','500','500')">Enlace a Certificado</a></li>
-                                <li>Declaraciones condicionales y bucles: <strong>While</strong> - Julio 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/e04a0137-3126-43c3-b7b6-2b30b45bdf8c','500','500')">Enlace a Certificado</a></li>
-                                <li>Tipos de datos complejos en Python: <strong>Dictionarios & Sets</strong> - Mayo 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/fb0b303b-ebc9-42cd-bd36-0f0b20239cb8','500','500')">Enlace a Certificado</a></li>
-                                <li>Tipos de datos complejos en Python: <strong>Listas & Tuplas</strong> - Abril 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/856c0753-bb75-44f8-ad82-6944a9668964','500','500')">Enlace a Certificado</a></li>
-                                <li>Clases & Herencia en Python: <strong>Introducci&oacute;n</strong> - Abril 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/76631bd7-f8ae-4876-ab57-00804a14f13d#gs.bc8tmb','500','500')">Enlace a Certificado</a></li>
-                                <li>Declaraciones condicionales y bucles <strong>For</strong> - April 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/9c9fc67c-164f-4c82-ae39-4bc10f01e3b5','500','500')">Enlace a Certificado</a></li>
-                                <li>Declaraciones condicionales y bucles: <strong>Avanzado</strong> - Marzo 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/e3f0c13d-9f7c-44e4-acb2-68ba978b2adf','500','500')">Enlace a Certificado</a></li>
-                                <li>Declaraciones condicionales y bucles - Marzo 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/4e6f1f77-a87d-4b48-99d7-003be4371e97','500','500')">Enlace a Certificado</a></li>
-                                <li>Getting Started with Python: <strong>Introducci&oacute;n</strong> - Marzo 2021 - <a class="green" href="javascript:openURL('https://skillsoft.digitalbadges.skillsoft.com/07ecf20b-2aad-4f0b-87bd-ef2d7828d584','500','500')">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-                        
-                        <article class="Movistar">
-                            <img src="https://www.fundaciontelefonica.com.ar/wp-content/uploads/2020/08/Logo-FTM-Arg.png" alt="Movistar Logo" height="30"><br>
-                            <ul>
-                                <li>Java SE [40hs] - Diciembre 2020 - <a class="green" href="javascript:openURL('../assets/pm/certif/FTM_Java_Certif.png','500','500')">Enlace a Certificado</a></li>
-                                <li>Javascript [40hs] - Diciembre 2020 - <a class="green" href="javascript:openURL('../assets/pm/certif/FTM_JS_Certif.png','500','500')">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="CUV">
-                            <img src="https://github.com/caidevOficial/Logos/raw/master/Instituciones/logo-cuv.png" alt="CUV Logo" height="30"><br>
-                            <ul>
-                                <li>Java SE [42hs] - Noviembre 2020 - <a class="green" href="javascript:openURL('../assets/pm/certif/CUV_certif.png','500','500')">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-
-                        <article class="TodoCode">
-                            <img src="../assets/logos/Logo_TodoCode.png" alt="TodoCode Logo" height="30"><br>
-                            <ul>
-                                <li>Introducci&oacute;n a bases de datos relacionales [MySQL] - Septiembre 2021 - <a class="green" href="javascript:openURL('../assets/pm/certif/todoCode_sql_certif.png','500','500')">Enlace a Certificado</a></li>
-                                <li>Algoritmos de programaci&oacute;n - Febrero 2021 - <a class="green" href="javascript:openURL('../assets/pm/certif/todoCode_certif.png','500','500')">Enlace a Certificado</a></li>
-                            </ul>
-                        </article>
-
-                        <hr>
-                    </section>
-                    <div>
-                        <section class="linkedinFrame">
-                            <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:6891257875625586688" height="653" width="504" frameborder="0" allowfullscreen="" title="Publicación integrada"></iframe>
-                        </section>
-                    </div>
-                </div>  
+                        <div class="lang-bar" aria-hidden="true">
+                            <div class="lang-bar-fill" style="width: 85%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="lang-item-top">
+                            <span class="lang-name">Chino Mandarín</span>
+                            <span class="lang-level">Básico · HSK 1</span>
+                        </div>
+                        <div class="lang-bar" aria-hidden="true">
+                            <div class="lang-bar-fill" style="width: 25%;"></div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-        </div>
+        </aside>
+
+        <!-- Right Main Content Column -->
+        <main class="content-column">
+            <!-- 1. Executive Summary (Sobre mí) -->
+            <section id="about" class="surface-card">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon" aria-hidden="true">👤</span>
+                        <span>Resumen Profesional</span>
+                    </h2>
+                    <span class="brand-badge">Ingeniería de Datos &amp; Cloud</span>
+                </div>
+
+                <p class="about-lead">
+                    Data Engineer y Python Developer con casi 6 años de experiencia en <strong>Accenture</strong> diseñando, construyendo y automatizando soluciones de datos escalables en <strong>Google Cloud Platform (GCP)</strong>, junto con casi 6 años de trayectoria docente enseñando Python y programación en la <strong>Universidad Tecnológica Nacional (UTN)</strong>.
+                </p>
+                <p class="about-body">
+                    Actualmente cursando la <strong>Licenciatura en Ciencias de Datos</strong> mientras participo en iniciativas de Data Lake y analítica empresarial a gran escala, enfocado en ingesta de datos, pipelines ETL/ELT, optimización de BigQuery y automatización CI/CD. Siempre abierto a conectar con profesionales del sector y conversar sobre oportunidades desafiantes <strong>100% remotas</strong> en Data Engineering, Desarrollo Python y Arquitectura Cloud.
+                </p>
+
+                <div class="top-skills-strip" aria-label="Top 5 Aptitudes Principales">
+                    <span class="top-skills-label">★ Top 5 Skills:</span>
+                    <span class="skill-chip">
+                        <img src="../assets/icons/python/python-original.svg" alt="" width="16" height="16">
+                        Python
+                    </span>
+                    <span class="skill-chip">
+                        <img src="../assets/icons/google/google_bigquery-ar21.svg" alt="" width="16" height="16">
+                        Google BigQuery
+                    </span>
+                    <span class="skill-chip">
+                        <img src="../assets/icons/google/google_cloud-icon.svg" alt="" width="16" height="16">
+                        Google Cloud Platform (GCP)
+                    </span>
+                    <span class="skill-chip">
+                        <img src="../assets/icons/mssql/microsoft-sql-server.svg" alt="" width="16" height="16">
+                        SQL
+                    </span>
+                    <span class="skill-chip">
+                        🏗️ Terraform
+                    </span>
+                </div>
+            </section>
+
+            <!-- 2. Technical Stack -->
+            <section id="stack" class="surface-card">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon" aria-hidden="true">⚡</span>
+                        <span>Stack Tecnológico</span>
+                    </h2>
+                </div>
+
+                <div class="stack-grid">
+                    <div class="stack-category">
+                        <h3 class="stack-category-title">☁️ Datos &amp; Cloud (GCP)</h3>
+                        <div class="stack-chips">
+                            <span class="skill-chip"><img src="../assets/icons/google/google_cloud-icon.svg" alt="" width="16" height="16">GCP</span>
+                            <span class="skill-chip"><img src="../assets/icons/google/google_bigquery-ar21.svg" alt="" width="16" height="16">BigQuery (DDL/DML)</span>
+                            <span class="skill-chip">Pipelines ETL / ELT</span>
+                            <span class="skill-chip">Cloud Data Lakes</span>
+                            <span class="skill-chip">Modelado de Datos</span>
+                            <span class="skill-chip">Migración Apache Hive</span>
+                            <span class="skill-chip"><img src="../assets/icons/numpy/numpy_logo.svg" alt="" width="16" height="16">Pandas &amp; NumPy</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-category">
+                        <h3 class="stack-category-title">🐍 Programación &amp; Bases de Datos</h3>
+                        <div class="stack-chips">
+                            <span class="skill-chip"><img src="../assets/icons/python/python-original.svg" alt="" width="16" height="16">Python</span>
+                            <span class="skill-chip"><img src="../assets/icons/mssql/microsoft-sql-server.svg" alt="" width="16" height="16">SQL / T-SQL</span>
+                            <span class="skill-chip"><img src="../assets/icons/mysql/mysql-original-wordmark.svg" alt="" width="16" height="16">MySQL / SQLite</span>
+                            <span class="skill-chip"><img src="../assets/icons/csharp/csharp-original.svg" alt="" width="16" height="16">C#</span>
+                            <span class="skill-chip"><img src="../assets/icons/c/c-original.svg" alt="" width="16" height="16">C</span>
+                            <span class="skill-chip">Java</span>
+                            <span class="skill-chip">JavaScript</span>
+                            <span class="skill-chip"><img src="../assets/icons/django/django-original.svg" alt="" width="16" height="16">Django &amp; REST APIs</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-category">
+                        <h3 class="stack-category-title">🚀 DevOps, IaC &amp; IA</h3>
+                        <div class="stack-chips">
+                            <span class="skill-chip">Terraform (IaC)</span>
+                            <span class="skill-chip">Azure DevOps</span>
+                            <span class="skill-chip">Pipelines CI/CD</span>
+                            <span class="skill-chip">Orquestación YAML</span>
+                            <span class="skill-chip"><img src="../assets/icons/git/git-original.svg" alt="" width="16" height="16">Git &amp; GitHub</span>
+                            <span class="skill-chip"><img src="../assets/icons/linux/linux-original.svg" alt="" width="16" height="16">Linux / Bash</span>
+                            <span class="skill-chip">🤖 Agentic AI &amp; LLMs</span>
+                            <span class="skill-chip">Agile / Scrum</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Work Experience -->
+            <section id="experience" class="surface-card">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon" aria-hidden="true">💼</span>
+                        <span>Experiencia Profesional</span>
+                    </h2>
+                    <span class="brand-badge">6+ Años en IT &amp; Docencia Universitaria</span>
+                </div>
+
+                <!-- Accenture Group -->
+                <div class="company-group">
+                    <div class="company-banner">
+                        <h3 class="company-name">🏢 Accenture Argentina</h3>
+                        <span class="company-tenure">Ene 2021 – Actualidad · ~6 años · En remoto</span>
+                    </div>
+
+                    <div class="timeline">
+                        <article class="timeline-item current">
+                            <span class="timeline-dot" aria-hidden="true"></span>
+                            <div class="role-header">
+                                <h4 class="role-title">Data Engineer Analyst</h4>
+                                <span class="role-period">Sept 2023 – Actualidad</span>
+                            </div>
+                            <p class="role-team">CIO — SEA [Self-Enable Analytics] &amp; Finance Program Team</p>
+                            <ul class="role-bullets">
+                                <li>Liderazgo de iniciativas de ingeniería de datos para los programas de Finance y Self-Enable Analytics (SEA) sobre el Data Lake empresarial AIA en Google Cloud Platform (GCP).</li>
+                                <li>Diseño, optimización y mantenimiento de esquemas complejos en BigQuery (DDL/DML), modelos de datos y tablas analíticas curadas para herramientas ejecutivas de BI y visualización.</li>
+                                <li>Desarrollo de automatizaciones en Python y pipelines ETL/ELT end-to-end para agilizar la ingesta, validación y transformación de datos en entornos ágiles.</li>
+                                <li>Construcción y mantenimiento de pipelines CI/CD automatizados en Azure DevOps y orquestación de despliegues mediante YAML y Terraform.</li>
+                            </ul>
+                            <div class="role-tags">
+                                <span class="role-tag">Python</span>
+                                <span class="role-tag">Google BigQuery</span>
+                                <span class="role-tag">GCP</span>
+                                <span class="role-tag">ETL/ELT</span>
+                                <span class="role-tag">Terraform</span>
+                                <span class="role-tag">Azure DevOps CI/CD</span>
+                                <span class="role-tag">YAML</span>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <span class="timeline-dot" aria-hidden="true"></span>
+                            <div class="role-header">
+                                <h4 class="role-title">Data Engineer</h4>
+                                <span class="role-period">Abr 2022 – Sept 2023</span>
+                            </div>
+                            <p class="role-team">CIO — SEA [Self-Enable Analytics] Team</p>
+                            <ul class="role-bullets">
+                                <li>Ingeniería y escalado de activos de datos en la nube dentro del programa CIO Self-Enable Analytics (SEA) sobre Google Cloud Platform (GCP).</li>
+                                <li>Implementación de pipelines de datos ETL/ELT automatizados utilizando Python y SQL (BigQuery) para ingerir, limpiar y curar grandes volúmenes de datos.</li>
+                                <li>Gestión de infraestructura GCP, versionado DDL/DML y despliegues mediante Terraform, orquestación YAML y Azure DevOps CI/CD.</li>
+                            </ul>
+                            <div class="role-tags">
+                                <span class="role-tag">GCP</span>
+                                <span class="role-tag">BigQuery</span>
+                                <span class="role-tag">Python</span>
+                                <span class="role-tag">Terraform</span>
+                                <span class="role-tag">Azure DevOps</span>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <span class="timeline-dot" aria-hidden="true"></span>
+                            <div class="role-header">
+                                <h4 class="role-title">Junior Data Engineer</h4>
+                                <span class="role-period">Jul 2021 – Abr 2022</span>
+                            </div>
+                            <p class="role-team">CIO — AIA Migration Team</p>
+                            <ul class="role-bullets">
+                                <li>Ejecución de la migración end-to-end de activos de datos legacy desde Apache Hive hacia Google Cloud Platform (BigQuery) en el equipo CIO AIA Migration, completando exitosamente todo el ciclo del proyecto.</li>
+                                <li>Desarrollo de scripts de automatización en Python y flujos orquestados con YAML para validar las tablas migradas y asegurar la integridad de los datos.</li>
+                                <li>Configuración de pipelines CI/CD en Azure DevOps y administración de recursos en GCP.</li>
+                            </ul>
+                            <div class="role-tags">
+                                <span class="role-tag">Apache Hive ➔ BigQuery</span>
+                                <span class="role-tag">Python</span>
+                                <span class="role-tag">YAML</span>
+                                <span class="role-tag">CI/CD</span>
+                            </div>
+                        </article>
+
+                        <article class="timeline-item">
+                            <span class="timeline-dot" aria-hidden="true"></span>
+                            <div class="role-header">
+                                <h4 class="role-title">Analytics Associate</h4>
+                                <span class="role-period">Ene 2021 – Jul 2021</span>
+                            </div>
+                            <p class="role-team">CIO — Self-Service Analytics Team</p>
+                            <ul class="role-bullets">
+                                <li>Soporte al equipo CIO Self-Service en análisis de datos, curación de tablas y tareas iniciales de migración de Hive a BigQuery en GCP.</li>
+                                <li>Creación y mantenimiento de scripts DDL/DML en BigQuery y desarrollo de utilidades en Python/Pandas para automatizar procesamientos rutinarios.</li>
+                            </ul>
+                            <div class="role-tags">
+                                <span class="role-tag">Python</span>
+                                <span class="role-tag">Pandas</span>
+                                <span class="role-tag">BigQuery SQL</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- UTN Group -->
+                <div class="company-group">
+                    <div class="company-banner">
+                        <h3 class="company-name">🎓 Universidad Tecnológica Nacional (UTN)</h3>
+                        <span class="company-tenure">Ene 2021 – Ago 2026 · 5 años 8 meses · En remoto</span>
+                    </div>
+
+                    <div class="timeline">
+                        <article class="timeline-item">
+                            <span class="timeline-dot" aria-hidden="true"></span>
+                            <div class="role-header">
+                                <h4 class="role-title">Profesor Titular [Python]</h4>
+                                <span class="role-period">Ago 2024 – Ago 2026</span>
+                            </div>
+                            <p class="role-team">Cátedra: Programación I [Python]</p>
+                            <ul class="role-bullets">
+                                <li>Dictado de clases teóricas y prácticas de programación en Python para estudiantes universitarios, cubriendo estructuras de datos, algoritmos y buenas prácticas de diseño de software.</li>
+                                <li>Diseño de material académico, guías de ejercicios prácticos y proyectos integradores alineados a estándares de la industria.</li>
+                                <li>Mentoría de alumnos y coordinación de evaluaciones junto al equipo de ayudantes de cátedra.</li>
+                            </ul>
+                        </article>
+
+                        <article class="timeline-item">
+                            <span class="timeline-dot" aria-hidden="true"></span>
+                            <div class="role-header">
+                                <h4 class="role-title">Profesor Ayudante [Python]</h4>
+                                <span class="role-period">Ago 2022 – Jul 2024</span>
+                            </div>
+                            <p class="role-team">Cátedras: Programación I [Python] &amp; Laboratorio I [Python]</p>
+                            <ul class="role-bullets">
+                                <li>Conducción de laboratorios prácticos y sesiones de live coding en Python, guiando a los estudiantes en depuración, resolución de problemas y código limpio.</li>
+                                <li>Colaboración con el profesor titular en el desarrollo de material, corrección de exámenes y actualización continua de ejercicios.</li>
+                            </ul>
+                        </article>
+
+                        <article class="timeline-item">
+                            <span class="timeline-dot" aria-hidden="true"></span>
+                            <div class="role-header">
+                                <h4 class="role-title">Profesor Ayudante [SPD]</h4>
+                                <span class="role-period">Ene 2021 – Jul 2022</span>
+                            </div>
+                            <p class="role-team">Cátedra: Sistemas de Procesamiento de Datos (SPD)</p>
+                            <ul class="role-bullets">
+                                <li>Asistencia docente en fundamentos de arquitectura de computadoras, álgebra de Boole (mapas de Karnaugh, código de Hamming), circuitos lógicos digitales y programación de microcontroladores con Arduino (C/C++).</li>
+                                <li>Preparación de entornos de laboratorio, trabajos prácticos y evaluaciones.</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Earlier Career Summary Accordion -->
+                <details class="provider-accordion">
+                    <summary>
+                        <span class="provider-summary-left">
+                            <span>🛠️ Experiencia Técnica y Comercial Previa (2014 – 2021)</span>
+                        </span>
+                        <span class="provider-count">2 Roles</span>
+                    </summary>
+                    <div style="padding: 1rem 1.25rem; background-color: var(--bg-surface);">
+                        <div class="timeline">
+                            <article class="timeline-item">
+                                <span class="timeline-dot" aria-hidden="true"></span>
+                                <div class="role-header">
+                                    <h4 class="role-title">Técnico Informático — Anone.it (Autónomo)</h4>
+                                    <span class="role-period">Nov 2014 – Ene 2021</span>
+                                </div>
+                                <ul class="role-bullets">
+                                    <li>Diagnóstico y reparación de hardware, armado de PCs a medida, instalación y administración de sistemas operativos (Linux y Windows), backups y seguridad a nivel usuario.</li>
+                                </ul>
+                            </article>
+                            <article class="timeline-item">
+                                <span class="timeline-dot" aria-hidden="true"></span>
+                                <div class="role-header">
+                                    <h4 class="role-title">Senior Account Merchant (Hewlett-Packard) — IntegraGO</h4>
+                                    <span class="role-period">Feb 2018 – Mar 2019</span>
+                                </div>
+                                <ul class="role-bullets">
+                                    <li>Nexo comercial y técnico entre HP y grandes cadenas retail, elaborando reportes semanales de indicadores (Excel/PPT). Ganador del <strong>Premio a la Mejor Exhibición</strong> en el canal hipermercados.</li>
+                                </ul>
+                            </article>
+                        </div>
+                    </div>
+                </details>
+            </section>
+
+            <!-- 4. Education -->
+            <section id="education" class="surface-card">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon" aria-hidden="true">🎓</span>
+                        <span>Formación Académica</span>
+                    </h2>
+                </div>
+
+                <div class="edu-grid">
+                    <article class="edu-card">
+                        <span class="edu-status active-degree">Jul 2026 – Dic 2028 · En curso</span>
+                        <h3 class="edu-degree">Licenciatura en Ciencias de Datos</h3>
+                        <p class="edu-school">Universidad de la Ciudad de Buenos Aires (UNICABA)</p>
+                        <p class="edu-desc">Ciencia de Datos, Machine Learning, Modelado Estadístico, Analítica de Big Data y Tecnologías de la Información.</p>
+                    </article>
+
+                    <article class="edu-card">
+                        <span class="edu-status">Ene 2020 – Jul 2024 · Graduado</span>
+                        <h3 class="edu-degree">Técnico Universitario en Programación</h3>
+                        <p class="edu-school">Universidad Tecnológica Nacional (UTN)</p>
+                        <p class="edu-desc">Ingeniería de Software, Programación Orientada a Objetos (Python, Java, C#, C), Bases de Datos Relacionales (SQL) y Estructuras de Datos.</p>
+                    </article>
+
+                    <article class="edu-card">
+                        <span class="edu-status">2014 · Graduado</span>
+                        <h3 class="edu-degree">Técnico en Armado y Reparación de PC</h3>
+                        <p class="edu-school">Universidad Nacional de Quilmes (UNQ)</p>
+                        <p class="edu-desc">Arquitectura de Computadoras, Diagnóstico de Hardware, Sistemas Operativos y Redes Locales.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 5. Certifications & Continuous Learning -->
+            <section id="certifications" class="surface-card">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon" aria-hidden="true">📜</span>
+                        <span>Licencias, Certificaciones y Cursos</span>
+                    </h2>
+                    <span class="brand-badge">85+ Credenciales Verificadas</span>
+                </div>
+
+                <!-- Featured Recent AI & Cloud Credentials -->
+                <div class="highlight-grid">
+                    <article class="highlight-card">
+                        <div>
+                            <span class="highlight-issuer">Anthropic · Expedición Ago 2026</span>
+                            <h3 class="highlight-title">Claude Academy: AI Capabilities and Limitations</h3>
+                        </div>
+                        <span class="role-tag">ID: 077c247b2bab490c443ecd9e8ded36ad</span>
+                    </article>
+
+                    <article class="highlight-card">
+                        <div>
+                            <span class="highlight-issuer">Accenture · Expedición Dic 2025</span>
+                            <h3 class="highlight-title">Reinvention with Agentic AI</h3>
+                        </div>
+                        <span class="role-tag">ID: 99099089-bccc-4bbb-a58a-4e7ce9943ea9</span>
+                    </article>
+                </div>
+
+                <!-- Search Filter for All Courses -->
+                <search class="cert-search-bar">
+                    <input type="search" id="certSearchInput" class="cert-search-input" placeholder="🔍 Filtrar cursos por tecnología o institución (ej. Python, GCP, SQL, Pandas, Design Patterns)..." aria-label="Filtrar cursos y certificaciones">
+                </search>
+
+                <!-- Platzi (22 courses) -->
+                <details class="provider-accordion" open>
+                    <summary>
+                        <span class="provider-summary-left">
+                            <span>💚 Platzi — Data Engineering, Cloud (GCP) &amp; Python</span>
+                        </span>
+                        <span class="provider-count">22 Certificados</span>
+                    </summary>
+                    <ul class="cert-list">
+                        <li><span>Curso Fundamentos de Python [17 hs] — Nov 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/4227-python/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Curso de Python: <strong>Comprehensions, Funciones y Manejo de Errores</strong> [21 hs] — Nov 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/4260-python-funciones/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Funciones Matemáticas para <strong>Data Science e Inteligencia Artificial</strong> [12 hs] — Oct 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/2701-course/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Entorno de Trabajo para Ciencia de Datos con <strong>Jupyter Notebooks y Anaconda</strong> [10 hs] — Oct 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/2434-jupyter-notebook/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Manipulación y Transformación de Datos con <strong>Python</strong> [22 hs] — Oct 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/4095-road-to-data-diploma/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Manipulación y Transformación de Datos con <strong>Pandas y NumPy</strong> [11 hs] — Sept 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/2912-pandas-numpy/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Visualización de Datos con <strong>Matplotlib y Seaborn</strong> [10 hs] — Sept 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/2913-matplotlib-seaborn/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Curso Profesional de <strong>Python</strong> [15 hs] — Mar 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/2397-python-profesional/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Estructuras de Datos Lineales con <strong>Python</strong> [15 hs] — Ene 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/2299-estructuras-datos-python/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Entrenamiento en <strong>Google Cloud Platform (GCP)</strong> [20 hs] — Ene 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1911-course/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Introducción a <strong>Google Cloud Platform (GCP)</strong> [8 hs] — Ene 2022</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/2469-fundamentos-google/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Curso de <strong>Python</strong> Intermedio [17 hs] — Abr 2021</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/2255-course/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Curso de <strong>SQL y MySQL</strong> [18 hs] — Mar 2021</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1272-course/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Fundamentos de Bases de Datos [26 hs] — Mar 2021</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1566-bd/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Pensamiento Computacional con <strong>Python</strong> [18 hs] — Mar 2021</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1764-course/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>POO y Algoritmos con <strong>Python</strong> [16 hs] — Mar 2021</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1775-poo-python/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Persistencia de Datos en <strong>Java SE</strong> [11 hs] — Ene 2021</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1760-java-persistencia/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span><strong>Java SE</strong> Orientado a Objetos — Dic 2020</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1629-course/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Programación Orientada a Objetos (OOP) — Dic 2020</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1474-oop/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Introducción a la Terminal y Línea de Comandos — Dic 2020</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1748-terminal/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Introducción a <strong>Java SE</strong> — Dic 2020</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1631-java-basico/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span><strong>Python</strong> Básico — Dic 2020</span> <a class="cert-link-btn" href="https://platzi.com/p/facufalcone/curso/1937-course/diploma/detalle/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                    </ul>
+                </details>
+
+                <!-- Udemy (20 courses) -->
+                <details class="provider-accordion">
+                    <summary>
+                        <span class="provider-summary-left">
+                            <img src="../assets/logos/Logo_Udemy.svg" alt="" height="20">
+                            <span>Udemy — Patrones de Diseño, IA, Python, C# y Java</span>
+                        </span>
+                        <span class="provider-count">20 Certificados</span>
+                    </summary>
+                    <ul class="cert-list">
+                        <li><span>Patrones de Diseño POO en <strong>Python</strong> — Ago 2023</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-8659df6a-0562-47d0-a5f1-36336e8206fe/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Acelerador de Python: <strong>Dominar Python con Google AI</strong> — Ago 2023</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-fb62ae80-f068-46f4-aa7e-6551b333cfca/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Manipulación de Datos en Python: <strong>Master Python, NumPy &amp; Pandas</strong> — Mar 2022</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-1803d07b-ce0d-4f69-a77a-89a0150f6ff4/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>C# en Profundidad [8.5 hs] — Jun 2021</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-3a7a65ce-1eb6-4560-af95-2cde172ee073/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Certificación C# y Python [7 hs] — Jun 2021</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-3f481854-e619-4aaf-b282-f4bcc7773dd1/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Programación Básica C# .NET — May 2021</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-d9731ef8-ea09-4f63-b5e5-c1cdde9e356c/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Programación Java Avanzado — Oct 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-55be9a8e-deef-4255-971b-a4411254c7ef/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Java Avanzado — Oct 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-73f68372-b7a9-4873-86f0-86b27b48e645/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Certificación Java — Oct 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-2cf776e7-8435-44e9-900a-dcfa15a19a0a/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Programación Completa en C [22 hs] — Ago 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-7cb7da20-eb81-4d5c-9412-11b1f6778bdf/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Estructuras de Datos con C — Ago 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-0133f4cb-2946-456d-aec5-9519c8a26d73/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Programación en C [33.5 hs] — Ago 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-59002d8e-ddd1-4ade-8c35-69a890f853e1/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span><strong>Python</strong> Completo — Mar 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-acc8dc70-8549-4023-891a-c7c7a8cdde82/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Introducción a Git y GitHub — Feb 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-d4ad791e-4cfd-4bfe-80e3-abc819d68cfa/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span><strong>Python 3</strong> [9 hs] — Feb 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-fd14afac-cc3e-4490-a353-6cb094a531dc/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Power BI: Orientación Integral — Feb 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-e9ec71fd-d634-4dcb-b2c7-ba650a33f90a/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Introducción a la Programación con JavaScript — Feb 2020</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-9cfbfaa5-56f7-4651-8db1-2d393dc64d06/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span>Redes CCDA — Nov 2019</span> <a class="cert-link-btn" href="https://www.udemy.com/certificate/UC-C8LUJV60/" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                    </ul>
+                </details>
+
+                <!-- Skillsoft Percipio (13 courses) -->
+                <details class="provider-accordion">
+                    <summary>
+                        <span class="provider-summary-left">
+                            <img src="../assets/logos/Logo_Skillsoft_Percipio.svg" alt="" height="20">
+                            <span>Skillsoft Percipio — Python Avanzado y Java SE 11</span>
+                        </span>
+                        <span class="provider-count">13 Insignias</span>
+                    </summary>
+                    <ul class="cert-list">
+                        <li><span>Java SE 11: <strong>Objetos y Clases</strong> — Oct 2021</span> <a class="cert-link-btn" href="https://skillsoft.digitalbadges.skillsoft.com/b9b9d65e-3474-4c55-b0f7-88b5d627412b" target="_blank" rel="noopener noreferrer">Insignia Digital ↗</a></li>
+                        <li><span>Tipos de Datos Complejos en Python: <strong>Shallow &amp; Deep Copies</strong> — Oct 2021</span> <a class="cert-link-btn" href="https://skillsoft.digitalbadges.skillsoft.com/2c135447-0854-45b0-a91e-5e2a499ef0e7" target="_blank" rel="noopener noreferrer">Insignia Digital ↗</a></li>
+                        <li><span>Funciones en Python: <strong>Comprensión Profunda</strong> — Oct 2021</span> <a class="cert-link-btn" href="https://skillsoft.digitalbadges.skillsoft.com/dbf36d7e-f4fc-4500-adff-896c850fe283" target="_blank" rel="noopener noreferrer">Insignia Digital ↗</a></li>
+                        <li><span>Funciones en Python: <strong>Características Avanzadas</strong> — Oct 2021</span> <a class="cert-link-btn" href="https://skillsoft.digitalbadges.skillsoft.com/9933e085-e950-43a5-b734-2cb4d4cc338b" target="_blank" rel="noopener noreferrer">Insignia Digital ↗</a></li>
+                        <li><span>Funciones en Python: <strong>Introducción</strong> — Oct 2021</span> <a class="cert-link-btn" href="https://skillsoft.digitalbadges.skillsoft.com/d7b13f38-1de7-479c-990d-b4272641b0df" target="_blank" rel="noopener noreferrer">Insignia Digital ↗</a></li>
+                        <li><span>Tipos de Datos Complejos en Python: <strong>Diccionarios y Sets</strong> — May 2021</span> <a class="cert-link-btn" href="https://skillsoft.digitalbadges.skillsoft.com/fb0b303b-ebc9-42cd-bd36-0f0b20239cb8" target="_blank" rel="noopener noreferrer">Insignia Digital ↗</a></li>
+                        <li><span>Tipos de Datos Complejos en Python: <strong>Listas y Tuplas</strong> — Abr 2021</span> <a class="cert-link-btn" href="https://skillsoft.digitalbadges.skillsoft.com/856c0753-bb75-44f8-ad82-6944a9668964" target="_blank" rel="noopener noreferrer">Insignia Digital ↗</a></li>
+                        <li><span>Clases y Herencia en Python: <strong>Introducción</strong> — Abr 2021</span> <a class="cert-link-btn" href="https://skillsoft.digitalbadges.skillsoft.com/76631bd7-f8ae-4876-ab57-00804a14f13d" target="_blank" rel="noopener noreferrer">Insignia Digital ↗</a></li>
+                        <li><span>Declaraciones Condicionales y Bucles (While, For, Avanzado) — Mar–Jul 2021</span> <a class="cert-link-btn" href="https://skillsoft.digitalbadges.skillsoft.com/e3f0c13d-9f7c-44e4-acb2-68ba978b2adf" target="_blank" rel="noopener noreferrer">Insignia Digital ↗</a></li>
+                    </ul>
+                </details>
+
+                <!-- Institutions & Bootcamps -->
+                <details class="provider-accordion">
+                    <summary>
+                        <span class="provider-summary-left">
+                            <span>🏛️ IEEE-ITBA, PoloTic, Código Facilito, LinkedIn &amp; TodoCode</span>
+                        </span>
+                        <span class="provider-count">18 Certificados</span>
+                    </summary>
+                    <ul class="cert-list">
+                        <li><span><strong>IEEE-ITBA:</strong> Análisis de Datos con Python — Oct 2021</span> <button type="button" class="cert-link-btn" data-cert-img="../assets/pm/certif/ITBA_Certif.png" data-cert-title="IEEE-ITBA — Análisis de Datos con Python">Ver Certificado 🖼️</button></li>
+                        <li><span><strong>PoloTic Misiones:</strong> Desarrollador Web Fullstack Python &amp; JavaScript — Nov 2020</span> <button type="button" class="cert-link-btn" data-cert-img="../assets/pm/certif/Python_FT_Certif.png" data-cert-title="PoloTic — Fullstack Python & JavaScript">Ver Certificado 🖼️</button></li>
+                        <li><span><strong>PoloTic Misiones:</strong> Desarrollador Web Fullstack Java — Dic 2020</span> <button type="button" class="cert-link-btn" data-cert-img="../assets/pm/certif/Java_FT_Certif.png" data-cert-title="PoloTic — Fullstack Java Developer">Ver Certificado 🖼️</button></li>
+                        <li><span><strong>PoloTic Misiones:</strong> Metodologías Ágiles y SCRUM — Sept 2020</span> <button type="button" class="cert-link-btn" data-cert-img="../assets/pm/certif/SCRUM_Certif.png" data-cert-title="PoloTic — Metodologías Ágiles y SCRUM">Ver Certificado 🖼️</button></li>
+                        <li><span><strong>Código Facilito:</strong> Curso Profesional de Base de Datos — Jun 2022</span> <a class="cert-link-btn" href="https://codigofacilito.com/certificates/41887.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></li>
+                        <li><span><strong>Código Facilito:</strong> Creación de Paquetes con Python — Jun 2022</span> <a class="cert-link-btn" href="https://codigofacilito.com/certificates/41207.pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a></li>
+                        <li><span><strong>Código Facilito:</strong> Curso Profesional de Git — Jun 2020</span> <button type="button" class="cert-link-btn" data-cert-img="../assets/pm/certif/Git_Certif_CF.png" data-cert-title="Código Facilito — Curso Profesional de Git">Ver Certificado 🖼️</button></li>
+                        <li><span><strong>LinkedIn Learning:</strong> Curso de Python — Feb 2022</span> <a class="cert-link-btn" href="https://www.linkedin.com/learning/certificates/b15339801195ec5f21a7a7e32bf21526309e36d2f05d1694c9353d20a7ec0acc" target="_blank" rel="noopener noreferrer">Certificado ↗</a></li>
+                        <li><span><strong>LinkedIn Learning:</strong> SCRUM — Ago 2020</span> <button type="button" class="cert-link-btn" data-cert-img="../assets/pm/certif/SCRUM_Certif_Linked.png" data-cert-title="LinkedIn Learning — SCRUM">Ver Certificado 🖼️</button></li>
+                        <li><span><strong>TodoCode:</strong> Introducción a Bases de Datos Relacionales [MySQL] — Sept 2021</span> <button type="button" class="cert-link-btn" data-cert-img="../assets/pm/certif/todoCode_sql_certif.png" data-cert-title="TodoCode — Bases de Datos Relacionales [MySQL]">Ver Certificado 🖼️</button></li>
+                        <li><span><strong>TodoCode:</strong> Algoritmos de Programación — Feb 2021</span> <button type="button" class="cert-link-btn" data-cert-img="../assets/pm/certif/todoCode_certif.png" data-cert-title="TodoCode — Algoritmos de Programación">Ver Certificado 🖼️</button></li>
+                        <li><span><strong>Fundación Telefónica:</strong> Java SE [40 hs] y JavaScript [40 hs] — Dic 2020</span> <button type="button" class="cert-link-btn" data-cert-img="../assets/pm/certif/FTM_Java_Certif.png" data-cert-title="Fundación Telefónica — Java SE">Ver Certificado 🖼️</button></li>
+                    </ul>
+                </details>
+            </section>
+
+            <!-- 6. GitHub Activity & Open Source -->
+            <section id="github" class="surface-card github-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="section-title-icon" aria-hidden="true">🐙</span>
+                        <span>Actividad en GitHub &amp; Open Source</span>
+                    </h2>
+                    <a href="https://github.com/caidevOficial" target="_blank" rel="noopener noreferrer" class="cert-link-btn">@caidevOficial ↗</a>
+                </div>
+
+                <div class="github-grid">
+                    <a href="https://github.com/caidevOficial" target="_blank" rel="noopener noreferrer">
+                        <img loading="lazy" width="400" height="195" src="https://github-readme-stats-caidevposeidon.vercel.app/api/top-langs/?username=caidevOficial&amp;layout=compact&amp;theme=tokyonight&amp;langs_count=8&amp;exclude_repo=Logos,Java_Lineage2_aCis_From_345&amp;hide=html,css,tsql" alt="Lenguajes más usados en GitHub por caidevOficial">
+                    </a>
+                    <a href="https://github.com/caidevOficial" target="_blank" rel="noopener noreferrer">
+                        <img loading="lazy" width="400" height="195" src="https://github-readme-stats-caidevposeidon.vercel.app/api?username=caidevOficial&amp;show_icons=true&amp;theme=tokyonight&amp;count_private=true&amp;show_owner=true&amp;include_all_commits=true" alt="Estadísticas de repositorios en GitHub de caidevOficial">
+                    </a>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <footer>
-        <div class="footer">
-            <div class="footer-inner animated bounceInDown">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12">
-                             &copy; 2022 
-                            <a class="green" href="# ">
-                                 Facu Falcone - CaidevOficial 
-                            </a>. 
-                        </div>
-                    </div>
-                    <!-- /row -->
-                </div>
-                <!-- /container -->
-            </div>
-            <!-- /footer-inner -->
+    <!-- Native <dialog closedby="any"> Modal for Certificate Previews -->
+    <dialog id="certDialog" class="cert-dialog" closedby="any" aria-labelledby="certDialogTitle">
+        <form method="dialog" class="dialog-header">
+            <h2 id="certDialogTitle" class="dialog-title">Vista Previa de Certificado</h2>
+            <button type="submit" class="icon-btn" aria-label="Cerrar vista previa">✕ Cerrar</button>
+        </form>
+        <div class="dialog-body">
+            <img id="certDialogImg" src="" alt="Vista previa de certificado" width="680" height="480" loading="lazy">
+        </div>
+    </dialog>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div>
+            &copy; 2021–2026 <a href="https://github.com/caidevOficial" target="_blank" rel="noopener noreferrer">Facundo Falcone (CaidevOficial)</a> · Data Engineer &amp; Python Developer
+        </div>
+        <div>
+            <a href="https://www.linkedin.com/in/facundo-falcone/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·
+            <a href="https://github.com/caidevOficial" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+            <a href="mailto:a.facundo.falcone@gmail.com">Contacto</a>
         </div>
     </footer>
-    <!-- /footer -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js " integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin=" anonymous ">
-    </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx " crossorigin="anonymous "></script>
 </body>
 
 </html>
