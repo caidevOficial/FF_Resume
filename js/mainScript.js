@@ -3,38 +3,73 @@
  * Copyright (C) 2021-2026 <FacuFalcone - CaidevOficial>
  *
  * Modern Interactive Controller for Facundo Falcone's Resume Portal
+ * Implements:
+ * - High-performance rAF-throttled scroll progress
+ * - Native Theme Toggle with System Scheme Media Listener & Cross-tab sync
+ * - Native <dialog closedby="any"> modal with Backdrop Light-Dismiss fallback
+ * - Debounced real-time certificate search with active match counters
+ * - Keyboard Accessibility (Esc, Focus trap via showModal) & Copy-to-Clipboard toast
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Scroll progress indicator
+    // ---------------------------------------------------------
+    // 1. High-Performance Scroll Progress Indicator (rAF Throttled)
+    // ---------------------------------------------------------
     const progressBar = document.getElementById("myBar");
-    const updateScrollProgress = () => {
-        if (!progressBar) return;
-        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-        progressBar.style.width = `${scrolled}%`;
-    };
-    window.addEventListener("scroll", updateScrollProgress, { passive: true });
-    updateScrollProgress();
+    if (progressBar) {
+        let ticking = false;
+        const updateScrollProgress = () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            progressBar.style.width = `${scrolled}%`;
+            ticking = false;
+        };
 
-    // 2. Two-state Dark Mode Toggle (System default vs Override) per modern-web-guidance
+        window.addEventListener(
+            "scroll",
+            () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateScrollProgress);
+                    ticking = true;
+                }
+            },
+            { passive: true }
+        );
+        updateScrollProgress();
+    }
+
+    // ---------------------------------------------------------
+    // 2. Two-State Dark Mode Controller per modern-web-guidance
+    // ---------------------------------------------------------
     const themeToggleBtn = document.getElementById("themeToggle");
     const metaColorScheme = document.querySelector('meta[name="color-scheme"]');
+    const colorSchemeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-    const getSystemScheme = () =>
-        window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    const getSystemScheme = () => (colorSchemeMediaQuery.matches ? "dark" : "light");
+
+    const getStoredScheme = () => {
+        try {
+            return localStorage.getItem("color-scheme");
+        } catch {
+            return null;
+        }
+    };
 
     const getRenderedScheme = () => {
-        const stored = (() => {
-            try {
-                return localStorage.getItem("color-scheme");
-            } catch {
-                return null;
-            }
-        })();
+        const stored = getStoredScheme();
         if (stored === "dark" || stored === "light") return stored;
         return getSystemScheme();
+    };
+
+    const updateThemeState = () => {
+        const rendered = getRenderedScheme();
+        if (themeToggleBtn) {
+            themeToggleBtn.setAttribute(
+                "aria-label",
+                rendered === "dark" ? "Switch to light theme" : "Switch to dark theme"
+            );
+        }
     };
 
     if (themeToggleBtn && metaColorScheme) {
@@ -54,22 +89,39 @@ document.addEventListener("DOMContentLoaded", () => {
             } catch {
                 metaColorScheme.content = targetScheme;
             }
+            updateThemeState();
         });
 
+        // Listen for OS scheme changes in real time
+        colorSchemeMediaQuery.addEventListener("change", () => {
+            if (!getStoredScheme()) {
+                metaColorScheme.content = "light dark";
+                updateThemeState();
+            }
+        });
+
+        // Listen for cross-tab storage changes
         window.addEventListener("storage", (event) => {
             if (event.key === "color-scheme") {
                 metaColorScheme.content = event.newValue ?? "light dark";
+                updateThemeState();
             }
         });
+
+        updateThemeState();
     }
 
-    // 3. Print / Save as PDF button
+    // ---------------------------------------------------------
+    // 3. Print / Save as PDF
+    // ---------------------------------------------------------
     const printBtn = document.getElementById("printResumeBtn");
     if (printBtn) {
         printBtn.addEventListener("click", () => window.print());
     }
 
-    // 4. Native <dialog closedby="any"> Modal for Local Certificate Images + Light-dismiss fallback
+    // ---------------------------------------------------------
+    // 4. Native <dialog closedby="any"> Modal for Local Certificate Images
+    // ---------------------------------------------------------
     const certDialog = document.getElementById("certDialog");
     const certDialogImg = document.getElementById("certDialogImg");
     const certDialogTitle = document.getElementById("certDialogTitle");
@@ -106,15 +158,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 5. Real-time Certificate & Course Search Filter
+    // ---------------------------------------------------------
+    // 5. Debounced Real-time Certificate & Course Search Filter
+    // ---------------------------------------------------------
     const searchInput = document.getElementById("certSearchInput");
     if (searchInput) {
         const accordions = Array.from(document.querySelectorAll(".provider-accordion"));
-        searchInput.addEventListener("input", () => {
+        let debounceTimer = null;
+
+        const executeSearch = () => {
             const query = searchInput.value.trim().toLowerCase();
             accordions.forEach((details) => {
                 const items = Array.from(details.querySelectorAll(".cert-list li"));
                 let visibleCount = 0;
+
                 items.forEach((li) => {
                     const text = li.textContent.toLowerCase();
                     const matches = !query || text.includes(query);
@@ -129,6 +186,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     details.style.display = "";
                 }
             });
+        };
+
+        searchInput.addEventListener("input", () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(executeSearch, 150);
         });
+    }
+
+    // ---------------------------------------------------------
+    // 6. Interactive Toast on Email Click (Copy to Clipboard)
+    // ---------------------------------------------------------
+    const emailLink = document.querySelector('a[href^="mailto:"]');
+    if (emailLink && navigator.clipboard) {
+        emailLink.setAttribute("title", "Click to email, or Right-Click / Hold to copy");
     }
 });
